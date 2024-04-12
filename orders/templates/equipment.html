@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="{% url 'home' %}">Orders</a>
+        <a href="{% url 'equipment' %}">Equipment</a>
+    </nav>
+</header>
+<h2>Equipment
+    <a href="#" style="text-decoration: none; color: inherit;">
+        <button style="margin-left: 10px;">Добавить новое оборудование</button>
+    </a>
+</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Serial Number</th>
+    </tr>
+    {% for item in equipment %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.type_equipment }}</td>
+        <td>{{ item.serial_number }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

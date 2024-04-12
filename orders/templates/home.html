@@ -1,0 +1,55 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">Orders</a>
+            <a href="{% url 'equipment' %}">Equipment</a>
+        </nav>
+    </header>
+    <h2>Orders</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Worker</th>
+            <th>Date and Time</th>
+            <th>Equipment</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Description</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.worker.user.first_name }}</td>
+            <td>{{ order.date }}</td>
+            <td>{{ orders.equipment.name }}</td>>
+            <td>{{ order.status.name }}</td>
+            <td>{{ order.priority.name }}</td>
+            <td>{{ order.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
